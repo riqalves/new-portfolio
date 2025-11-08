@@ -1,0 +1,32 @@
+---
+// 1. Importamos nosso arquivo JSON
+import skillCategories from '../data/skills.json';
+---
+<section id="skill-container">
+  <header class="skill__title section-header">
+    <h2>Habilidades</h2>
+    <p>Tecnologias</p>
+  </header>
+  <article class="skill__card-container">
+    
+    {skillCategories.map((category) => (
+      <div class="skill__card">
+        <header class="skill__card__header">
+          <img src={category.icon} alt={category.title} />
+          <h3>{category.title}</h3>
+        </header>
+        <div class="skill__list">
+          
+          {category.skills.map((skill) => (
+            <span class="skill__list__item">
+              <Fragment set:html={skill.iconHtml} />
+              <p>{skill.name}</p>
+            </span>
+          ))}
+
+        </div>
+      </div>
+    ))}
+
+  </article>
+</section>

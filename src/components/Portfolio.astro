@@ -1,0 +1,151 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+
+const projectsData = allProjects.map((p: CollectionEntry<'projects'>) => p.data);
+---
+<section id="portfolio-container">
+  <header class="section-header">
+    <h2>Portfólio</h2>
+    <p>Meus Projetos</p>
+  </header>
+  <div class="portfolio__grid">
+
+    {allProjects.map((project: CollectionEntry<'projects'>) => (
+      <div class="portfolio__item" data-project-id={project.data.id}>
+        <div class="portfolio__item__image">
+          <img
+            src={project.data.image}
+            alt={project.data.name}
+          />
+        </div>
+        <div class="portfolio__item__content">
+          <h3>{project.data.name}</h3>
+          <p>{project.data.description}</p>
+          
+          <div class="portfolio__tags">
+            {project.data.technologies.map((tag: string) => (
+              <span class="portfolio__tag">{tag}</span>
+            ))}
+          </div>
+          
+          <div class="portfolio__links">
+            <a
+              href={project.data.demoLink || '#'}
+              target="_blank"
+              rel="noreferrer noopener"
+              class:list={[
+                "portfolio__link",
+                { 'demo-disabled': !project.data.demoLink }
+              ]}
+            >
+              Ver Demo
+            </a>
+            <a
+              href={project.data.githubLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              class="portfolio__link"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+
+  </div>
+
+  <div class="modal__overlay modal--hidden" id="projectModalOverlay">
+    <div class="modal" id="projectModal">
+      <button class="modal__close-btn" id="modalCloseBtn">&times;</button>
+      <div class="modal__content" id="modalContent">
+        </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ projectsData }}>
+
+
+  const allProjects = projectsData;
+
+  const portfolioGrid = document.querySelector(".portfolio__grid");
+  const modalOverlay = document.getElementById("projectModalOverlay");
+  const modalContent = document.getElementById("modalContent");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+  if (portfolioGrid && modalOverlay && modalContent && modalCloseBtn) {
+    
+    const populateModal = (project) => {
+      modalContent.innerHTML = `
+        <h2>${project.name}</h2>
+        <h3 class="section-title">Sobre o Projeto</h3>
+        <p>${project.description}</p>
+        <h3 class="section-title">Minha Participação</h3>
+        <p>${project.myRole}</p>
+        <h3 class="section-title">Tecnologias Utilizadas</h3>
+        <p>${project.technologies.join(', ')}</p>
+        <h3 class="section-title">Screenshots</h3>
+        <div class="modal__screenshots">
+          ${project.screenshots.map(src => `<img src="${src}" alt="Screenshot do projeto ${project.name}">`).join('')}
+        </div>
+        <a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="modal__link">Ver código no GitHub</a>
+      `;
+    };
+
+    const openModal = () => {
+      modalOverlay.classList.remove("modal--hidden");
+    };
+
+    const closeModal = () => {
+      modalOverlay.classList.add("modal--hidden");
+    };
+
+    
+    portfolioGrid.addEventListener("click", (e) => {
+      const target = e.target;
+      const clickedCard = target.closest(".portfolio__item");
+
+      if (clickedCard) {
+        const projectId = clickedCard.dataset.projectId;
+        const projectData = allProjects.find(p => p.id === projectId);
+        
+        if (projectData) {
+          populateModal(projectData);
+          openModal();
+        }
+      }
+    });
+
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modalOverlay.classList.contains("modal--hidden")) {
+        closeModal();
+      }
+    });
+
+  } else {
+    console.error("Um ou mais elementos do modal não foram encontrados. O modal não funcionará.");
+  }
+
+
+  function disableLinksByClass(className) {
+    const links = document.querySelectorAll(`a.${className}`);
+    links.forEach(link => {
+      link.removeAttribute('href');
+      link.style.pointerEvents = 'none'; 
+      link.style.cursor = 'default';
+    });
+  }
+
+  disableLinksByClass("demo-disabled");
+</script>
