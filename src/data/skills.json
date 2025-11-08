@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Linguagens",
+    "icon": "/img/icons/code.svg",
+    "skills": [
+      {
+        "name": "HTML5",
+        "iconHtml": "<i class=\"devicon-html5-plain colored\"></i>"
+      },
+      {
+        "name": "CSS3",
+        "iconHtml": "<i class=\"devicon-css3-plain colored\"></i>"
+      },
+      {
+        "name": "JavaScript",
+        "iconHtml": "<i class=\"devicon-javascript-plain colored\"></i>"
+      },
+      {
+        "name": "Python",
+        "iconHtml": "<img src=\"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg\" />"
+      },
+      {
+        "name": "Java",
+        "iconHtml": "<img src=\"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg\" />"
+      },
+      {
+        "name": "Kotlin",
+        "iconHtml": "<i class=\"devicon-kotlin-plain colored\"></i>"
+      },
+      {
+        "name": "PHP",
+        "iconHtml": "<i class=\"devicon-php-plain colored\"></i>"
+      }
+    ]
+  },
+  {
+    "title": "Tecnologias e Frameworks",
+    "icon": "/img/icons/frameworks.svg",
+    "skills": [
+      {
+        "name": "Tailwind CSS",
+        "iconHtml": "<svg viewBox=\"0 0 128 128\"><path d=\"M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0\" fill=\"#38bdf8\"></path></svg>"
+      },
+      {
+        "name": "React",
+        "iconHtml": "<i class=\"devicon-react-plain colored\"></i>"
+      },
+      {
+        "name": "Node.js",
+        "iconHtml": "<i class=\"devicon-nodejs-plain colored\"></i>"
+      },
+      {
+        "name": "SpringBoot",
+        "iconHtml": "<i class=\"devicon-spring-original colored\"></i>"
+      },
+      {
+        "name": "MongoDB",
+        "iconHtml": "<img src=\"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg\" />"
+      },
+      {
+        "name": "Fast API",
+        "iconHtml": "<i class=\"devicon-fastapi-plain colored\"></i>"
+      },
+      {
+        "name": "Laravel",
+        "iconHtml": "<i class=\"devicon-laravel-original colored\"></i>"
+      },
+      {
+        "name": "Postman",
+        "iconHtml": "<i class=\"devicon-postman-plain colored\"></i>"
+      }
+    ]
+  },
+  {
+    "title": "Banco de dados",
+    "icon": "/img/icons/database.svg",
+    "skills": [
+      {
+        "name": "MySQL",
+        "iconHtml": "<i class=\"devicon-mysql-original colored\"></i>"
+      },
+      {
+        "name": "PostgreSQL",
+        "iconHtml": "<i class=\"devicon-postgresql-plain colored\"></i>"
+      },
+      {
+        "name": "MongoDB",
+        "iconHtml": "<i class=\"devicon-mongodb-plain colored\"></i>"
+      },
+      {
+        "name": "Firebase",
+        "iconHtml": "<i class=\"devicon-firebase-plain colored\"></i>"
+      },
+      {
+        "name": "SQLite",
+        "iconHtml": "<i class=\"devicon-sqlite-plain colored\"></i>"
+      }
+    ]
+  },
+  {
+    "title": "Cloud & DevOps",
+    "icon": "/img/icons/cloud.svg",
+    "skills": [
+      {
+        "name": "Git",
+        "iconHtml": "<i class=\"devicon-git-plain colored\"></i>"
+      },
+      {
+        "name": "GitHub",
+        "iconHtml": "<i class=\"devicon-github-plain colored\"></i>"
+      },
+      {
+        "name": "Maven",
+        "iconHtml": "<i class=\"devicon-maven-plain colored\"></i>"
+      },
+      {
+        "name": "Gradle",
+        "iconHtml": "<i class=\"devicon-gradle-plain colored\"></i>"
+      }
+    ]
+  }
+]
